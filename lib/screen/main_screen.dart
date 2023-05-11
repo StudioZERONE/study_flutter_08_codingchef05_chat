@@ -16,6 +16,7 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
       backgroundColor: Palette.backgroundColor,
       body: Stack(
         children: [
+          // 배경 ---------------------------------
           Positioned(
             top: 0,
             right: 0,
@@ -72,6 +73,7 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
               ),
             ),
           ),
+          // 텍스트 폼 필드 ---------------------------------
           Positioned(
             top: 180,
             child: Container(
@@ -153,8 +155,175 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                       ),
                     ],
                   ),
+                  Container(
+                    margin: const EdgeInsets.only(top: 20),
+                    child: Form(
+                      child: Column(
+                        children: [
+                          TextFormField(
+                            decoration: const InputDecoration(
+                              prefixIcon: Icon(
+                                Icons.account_circle,
+                                color: Palette.iconColor,
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide:
+                                    BorderSide(color: Palette.textColor1),
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(35),
+                                ),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide:
+                                    BorderSide(color: Palette.textColor1),
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(35),
+                                ),
+                              ),
+                              hintText: 'User name',
+                              hintStyle: TextStyle(
+                                fontSize: 14,
+                                color: Palette.textColor1,
+                              ),
+                              contentPadding: EdgeInsets.all(10),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 8,
+                          ),
+                          TextFormField(
+                            decoration: const InputDecoration(
+                              prefixIcon: Icon(
+                                Icons.account_circle,
+                                color: Palette.iconColor,
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide:
+                                    BorderSide(color: Palette.textColor1),
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(35),
+                                ),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide:
+                                    BorderSide(color: Palette.textColor1),
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(35),
+                                ),
+                              ),
+                              hintText: '',
+                              hintStyle: TextStyle(
+                                fontSize: 14,
+                                color: Palette.textColor1,
+                              ),
+                              contentPadding: EdgeInsets.all(10),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 8,
+                          ),
+                          TextFormField(
+                            decoration: const InputDecoration(
+                              prefixIcon: Icon(
+                                Icons.account_circle,
+                                color: Palette.iconColor,
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide:
+                                    BorderSide(color: Palette.textColor1),
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(35),
+                                ),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide:
+                                    BorderSide(color: Palette.textColor1),
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(35),
+                                ),
+                              ),
+                              hintText: '',
+                              hintStyle: TextStyle(
+                                fontSize: 14,
+                                color: Palette.textColor1,
+                              ),
+                              contentPadding: EdgeInsets.all(10),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
                 ],
               ),
+            ),
+          ),
+          // Submit 버튼 ---------------------------------
+          Positioned(
+            top: 430,
+            right: 0,
+            left: 0,
+            child: Center(
+              child: Container(
+                padding: const EdgeInsets.all(15),
+                height: 90,
+                width: 90,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(50),
+                ),
+                child: Container(
+                  decoration: BoxDecoration(
+                    gradient: const LinearGradient(
+                      colors: [
+                        Colors.orange,
+                        Colors.red,
+                      ],
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                    ),
+                    borderRadius: BorderRadius.circular(30),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.3),
+                        spreadRadius: 1,
+                        blurRadius: 1,
+                        offset: const Offset(0, 1),
+                      ),
+                    ],
+                  ),
+                  child: const Icon(
+                    Icons.arrow_forward,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            top: MediaQuery.of(context).size.height - 125,
+            right: 0,
+            left: 0,
+            child: Column(
+              children: [
+                const Text('or Signup with'),
+                const SizedBox(
+                  height: 10,
+                ),
+                TextButton.icon(
+                  onPressed: () {},
+                  style: TextButton.styleFrom(
+                    foregroundColor: Colors.white,
+                    minimumSize: const Size(155, 40),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    backgroundColor: Palette.googleColor,
+                  ),
+                  icon: const Icon(Icons.add),
+                  label: const Text('Google'),
+                ),
+              ],
             ),
           ),
         ],
