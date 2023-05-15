@@ -164,6 +164,7 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                         child: Column(
                           children: [
                             TextFormField(
+                              key: const ValueKey(1),
                               decoration: const InputDecoration(
                                 prefixIcon: Icon(
                                   Icons.account_circle,
@@ -195,6 +196,7 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                               height: 8,
                             ),
                             TextFormField(
+                              key: const ValueKey(2),
                               decoration: const InputDecoration(
                                 prefixIcon: Icon(
                                   Icons.account_circle,
@@ -226,6 +228,7 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                               height: 8,
                             ),
                             TextFormField(
+                              key: const ValueKey(3),
                               decoration: const InputDecoration(
                                 prefixIcon: Icon(
                                   Icons.account_circle,
@@ -264,6 +267,7 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                         child: Column(
                           children: [
                             TextFormField(
+                              key: const ValueKey(4),
                               decoration: const InputDecoration(
                                 prefixIcon: Icon(
                                   Icons.account_circle,
@@ -295,6 +299,7 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                               height: 8,
                             ),
                             TextFormField(
+                              key: const ValueKey(5),
                               decoration: const InputDecoration(
                                 prefixIcon: Icon(
                                   Icons.account_circle,
