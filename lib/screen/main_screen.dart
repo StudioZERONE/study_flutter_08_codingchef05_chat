@@ -165,6 +165,12 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                           children: [
                             TextFormField(
                               key: const ValueKey(1),
+                              validator: (value) {
+                                if (value!.isEmpty || value.length < 4) {
+                                  return '최소한 4 글자 이상 입력해 주세요';
+                                }
+                                return null;
+                              },
                               decoration: const InputDecoration(
                                 prefixIcon: Icon(
                                   Icons.account_circle,
@@ -197,6 +203,12 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                             ),
                             TextFormField(
                               key: const ValueKey(2),
+                              validator: (value) {
+                                if (value!.isEmpty || !value.contains('@')) {
+                                  return '유효한 이메일주소를 입력해 주세요';
+                                }
+                                return null;
+                              },
                               decoration: const InputDecoration(
                                 prefixIcon: Icon(
                                   Icons.account_circle,
@@ -229,6 +241,12 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                             ),
                             TextFormField(
                               key: const ValueKey(3),
+                              validator: (value) {
+                                if (value!.isEmpty || value.length < 6) {
+                                  return '최소한 6 글자 이상 입력해 주세요';
+                                }
+                                return null;
+                              },
                               decoration: const InputDecoration(
                                 prefixIcon: Icon(
                                   Icons.account_circle,
@@ -268,6 +286,12 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                           children: [
                             TextFormField(
                               key: const ValueKey(4),
+                              validator: (value) {
+                                if (value!.isEmpty || value.length < 4) {
+                                  return '최소한 4 글자 이상 입력해 주세요';
+                                }
+                                return null;
+                              },
                               decoration: const InputDecoration(
                                 prefixIcon: Icon(
                                   Icons.account_circle,
@@ -300,6 +324,12 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                             ),
                             TextFormField(
                               key: const ValueKey(5),
+                              validator: (value) {
+                                if (value!.isEmpty || value.length < 6) {
+                                  return '최소한 6 글자 이상 입력해 주세요';
+                                }
+                                return null;
+                              },
                               decoration: const InputDecoration(
                                 prefixIcon: Icon(
                                   Icons.account_circle,
