@@ -451,8 +451,12 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
               ),
             ),
             // 구글 로그인 ---------------------------------
-            Positioned(
-              top: MediaQuery.of(context).size.height - 125,
+            AnimatedPositioned(
+              duration: const Duration(microseconds: 500),
+              curve: Curves.easeIn,
+              top: isSignupScreen
+                  ? MediaQuery.of(context).size.height - 125
+                  : MediaQuery.of(context).size.height - 165,
               right: 0,
               left: 0,
               child: Column(
