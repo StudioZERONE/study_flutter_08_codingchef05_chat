@@ -10,6 +10,18 @@ class LoginSignupScreen extends StatefulWidget {
 
 class _LoginSignupScreenState extends State<LoginSignupScreen> {
   bool isSignupScreen = true;
+  final _formKey = GlobalKey<FormState>();
+  String userName = '';
+  String userEmail = '';
+  String userPassword = '';
+
+  void _tryValidation() {
+    final isValid = _formKey.currentState!.validate();
+    if (isValid) {
+      _formKey.currentState!.save();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -161,6 +173,7 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                     Container(
                       margin: const EdgeInsets.only(top: 20),
                       child: Form(
+                        key: _formKey,
                         child: Column(
                           children: [
                             TextFormField(
@@ -170,6 +183,9 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                                   return '최소한 4 글자 이상 입력해 주세요';
                                 }
                                 return null;
+                              },
+                              onSaved: (value) {
+                                userName = value!;
                               },
                               decoration: const InputDecoration(
                                 prefixIcon: Icon(
@@ -209,6 +225,9 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                                 }
                                 return null;
                               },
+                              onSaved: (value) {
+                                userEmail = value!;
+                              },
                               decoration: const InputDecoration(
                                 prefixIcon: Icon(
                                   Icons.account_circle,
@@ -247,6 +266,9 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                                 }
                                 return null;
                               },
+                              onSaved: (value) {
+                                userPassword = value!;
+                              },
                               decoration: const InputDecoration(
                                 prefixIcon: Icon(
                                   Icons.account_circle,
@@ -282,6 +304,7 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                     Container(
                       margin: const EdgeInsets.only(top: 20),
                       child: Form(
+                        key: _formKey,
                         child: Column(
                           children: [
                             TextFormField(
@@ -291,6 +314,9 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                                   return '최소한 4 글자 이상 입력해 주세요';
                                 }
                                 return null;
+                              },
+                              onSaved: (value) {
+                                userName = value!;
                               },
                               decoration: const InputDecoration(
                                 prefixIcon: Icon(
@@ -329,6 +355,9 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                                   return '최소한 6 글자 이상 입력해 주세요';
                                 }
                                 return null;
+                              },
+                              onSaved: (value) {
+                                userPassword = value!;
                               },
                               decoration: const InputDecoration(
                                 prefixIcon: Icon(
@@ -379,29 +408,34 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(50),
                 ),
-                child: Container(
-                  decoration: BoxDecoration(
-                    gradient: const LinearGradient(
-                      colors: [
-                        Colors.orange,
-                        Colors.red,
-                      ],
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                    ),
-                    borderRadius: BorderRadius.circular(30),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withOpacity(0.3),
-                        spreadRadius: 1,
-                        blurRadius: 1,
-                        offset: const Offset(0, 1),
+                child: GestureDetector(
+                  onTap: () {
+                    _tryValidation();
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                      gradient: const LinearGradient(
+                        colors: [
+                          Colors.orange,
+                          Colors.red,
+                        ],
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
                       ),
-                    ],
-                  ),
-                  child: const Icon(
-                    Icons.arrow_forward,
-                    color: Colors.white,
+                      borderRadius: BorderRadius.circular(30),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.3),
+                          spreadRadius: 1,
+                          blurRadius: 1,
+                          offset: const Offset(0, 1),
+                        ),
+                      ],
+                    ),
+                    child: const Icon(
+                      Icons.arrow_forward,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
               ),
