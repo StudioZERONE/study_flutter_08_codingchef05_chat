@@ -29,6 +29,13 @@
             {
               "client_id": "878194092081-rigacmadse0dkvonpb6h5jfke66d57d3.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "878194092081-4jpbku4c44nk326f39en9gkshi69pd58.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.studyFlutter08Codingchef05Chat"
+              }
             }
           ]
         }
