@@ -273,6 +273,7 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                                   height: 8,
                                 ),
                                 TextFormField(
+                                  obscureText: true,
                                   key: const ValueKey(3),
                                   validator: (value) {
                                     if (value!.isEmpty || value.length < 6) {
@@ -369,6 +370,7 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                                   height: 8,
                                 ),
                                 TextFormField(
+                                  obscureText: true,
                                   key: const ValueKey(5),
                                   validator: (value) {
                                     if (value!.isEmpty || value.length < 6) {
@@ -435,6 +437,9 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                   child: GestureDetector(
                     onTap: () {
                       _tryValidation();
+                      print('userName: $userName ---------------');
+                      print('userEmail: $userEmail ---------------');
+                      print('userPassword: $userPassword ---------------');
                     },
                     child: Container(
                       decoration: BoxDecoration(
