@@ -228,6 +228,7 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                                   height: 8,
                                 ),
                                 TextFormField(
+                                  keyboardType: TextInputType.emailAddress,
                                   key: const ValueKey(2),
                                   validator: (value) {
                                     if (value!.isEmpty ||
