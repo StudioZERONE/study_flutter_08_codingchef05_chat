@@ -194,6 +194,9 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                                   onSaved: (value) {
                                     userName = value!;
                                   },
+                                  onChanged: (value) {
+                                    userName = value;
+                                  },
                                   decoration: const InputDecoration(
                                     prefixIcon: Icon(
                                       Icons.account_circle,
@@ -236,6 +239,9 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                                   onSaved: (value) {
                                     userEmail = value!;
                                   },
+                                  onChanged: (value) {
+                                    userEmail = value;
+                                  },
                                   decoration: const InputDecoration(
                                     prefixIcon: Icon(
                                       Icons.account_circle,
@@ -276,6 +282,9 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                                   },
                                   onSaved: (value) {
                                     userPassword = value!;
+                                  },
+                                  onChanged: (value) {
+                                    userPassword = value;
                                   },
                                   decoration: const InputDecoration(
                                     prefixIcon: Icon(
@@ -326,6 +335,9 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                                   onSaved: (value) {
                                     userName = value!;
                                   },
+                                  onChanged: (value) {
+                                    userName = value;
+                                  },
                                   decoration: const InputDecoration(
                                     prefixIcon: Icon(
                                       Icons.account_circle,
@@ -366,6 +378,9 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                                   },
                                   onSaved: (value) {
                                     userPassword = value!;
+                                  },
+                                  onChanged: (value) {
+                                    userPassword = value;
                                   },
                                   decoration: const InputDecoration(
                                     prefixIcon: Icon(
