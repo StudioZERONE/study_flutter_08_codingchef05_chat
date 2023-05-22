@@ -475,7 +475,24 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                       // 회원 로그인 ----------------
                       if (!isSignupScreen) {
                         _tryValidation();
-                        try {} catch (e) {}
+                        try {
+                          final loginUser =
+                              await _authentication.signInWithEmailAndPassword(
+                            email: userEmail,
+                            password: userPassword,
+                          );
+
+                          if (loginUser.user != null) {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) {
+                                return const ChatScreen();
+                              }),
+                            );
+                          }
+                        } catch (e) {
+                          print('User Login - Error: $e');
+                        }
                       }
 
                       // print('userName: $userName ---------------');
