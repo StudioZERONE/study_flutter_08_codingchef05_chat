@@ -492,6 +492,13 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                           }
                         } catch (e) {
                           print('User Login - Error: $e');
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                              content:
+                                  Text('Please check your email and password'),
+                              backgroundColor: Colors.blue,
+                            ),
+                          );
                         }
                       }
 
