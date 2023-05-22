@@ -333,16 +333,17 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                                 TextFormField(
                                   key: const ValueKey(4),
                                   validator: (value) {
-                                    if (value!.isEmpty || value.length < 4) {
-                                      return '최소한 4 글자 이상 입력해 주세요';
+                                    if (value!.isEmpty ||
+                                        !value.contains('@')) {
+                                      return '유효한 이메일주소를 입력해 주세요';
                                     }
                                     return null;
                                   },
                                   onSaved: (value) {
-                                    userName = value!;
+                                    userEmail = value!;
                                   },
                                   onChanged: (value) {
-                                    userName = value;
+                                    userEmail = value;
                                   },
                                   decoration: const InputDecoration(
                                     prefixIcon: Icon(
@@ -363,7 +364,7 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                                         Radius.circular(35),
                                       ),
                                     ),
-                                    hintText: 'User name',
+                                    hintText: 'Email',
                                     hintStyle: TextStyle(
                                       fontSize: 14,
                                       color: Palette.textColor1,
@@ -441,6 +442,7 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                   ),
                   child: GestureDetector(
                     onTap: () async {
+                      // 회원가입 ----------------
                       if (isSignupScreen) {
                         _tryValidation();
                         try {
@@ -468,6 +470,12 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                             ),
                           );
                         }
+                      }
+
+                      // 회원 로그인 ----------------
+                      if (!isSignupScreen) {
+                        _tryValidation();
+                        try {} catch (e) {}
                       }
 
                       // print('userName: $userName ---------------');
