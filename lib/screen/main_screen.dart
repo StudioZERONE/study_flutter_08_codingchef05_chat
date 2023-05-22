@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:study_flutter_08_codingchef05_chat/config/palette.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:study_flutter_08_codingchef05_chat/screen/chat_screen.dart';
 
 class LoginSignupScreen extends StatefulWidget {
   const LoginSignupScreen({super.key});
@@ -9,6 +11,8 @@ class LoginSignupScreen extends StatefulWidget {
 }
 
 class _LoginSignupScreenState extends State<LoginSignupScreen> {
+  final _authentication = FirebaseAuth.instance;
+
   bool isSignupScreen = true;
   final _formKey = GlobalKey<FormState>();
   String userName = '';
@@ -436,11 +440,39 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                     borderRadius: BorderRadius.circular(50),
                   ),
                   child: GestureDetector(
-                    onTap: () {
-                      _tryValidation();
-                      print('userName: $userName ---------------');
-                      print('userEmail: $userEmail ---------------');
-                      print('userPassword: $userPassword ---------------');
+                    onTap: () async {
+                      if (isSignupScreen) {
+                        _tryValidation();
+                        try {
+                          final newUser = await _authentication
+                              .createUserWithEmailAndPassword(
+                            email: userEmail,
+                            password: userPassword,
+                          );
+
+                          if (newUser.user != null) {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) {
+                                return const ChatScreen();
+                              }),
+                            );
+                          }
+                        } catch (e) {
+                          print('New User Creation - Error: $e');
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                              content:
+                                  Text('Please check your email and password'),
+                              backgroundColor: Colors.blue,
+                            ),
+                          );
+                        }
+                      }
+
+                      // print('userName: $userName ---------------');
+                      // print('userEmail: $userEmail ---------------');
+                      // print('userPassword: $userPassword ---------------');
                     },
                     child: Container(
                       decoration: BoxDecoration(
