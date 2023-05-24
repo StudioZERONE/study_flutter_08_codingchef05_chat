@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:study_flutter_08_codingchef05_chat/screen/main_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:study_flutter_08_codingchef05_chat/screen/chat_screen.dart';
+import 'package:study_flutter_08_codingchef05_chat/screen/main_screen.dart';
 import 'firebase_options.dart';
 
 void main() async {
-
   // Firebase 초기화 --------
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
@@ -23,7 +24,15 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Chatting App',
       theme: ThemeData(primarySwatch: Colors.blue),
-      home: const LoginSignupScreen(),
+      home: StreamBuilder(
+        stream: FirebaseAuth.instance.authStateChanges(),
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            return const ChatScreen();
+          }
+          return const LoginSignupScreen();
+        },
+      ),
     );
   }
 }
