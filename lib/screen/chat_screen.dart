@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:study_flutter_08_codingchef05_chat/chatting/chat/message.dart';
 
 class ChatScreen extends StatefulWidget {
   const ChatScreen({super.key});
@@ -50,36 +50,45 @@ class _ChatScreenState extends State<ChatScreen> {
           ),
         ],
       ),
-      body: StreamBuilder(
-        stream: FirebaseFirestore.instance
-            .collection('chats/WEFaxXy2doedbXQkR0Q1/message')
-            .snapshots(),
-        builder: (BuildContext context,
-            AsyncSnapshot<QuerySnapshot<Map<String, dynamic>>> snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
-          }
-
-          final docs = snapshot.data!.docs;
-
-          return ListView.builder(
-            itemCount: docs.length,
-            itemBuilder: (context, index) {
-              return Container(
-                padding: const EdgeInsets.all(8),
-                child: Text(
-                  docs[index]['text'],
-                  style: const TextStyle(
-                    fontSize: 20,
-                  ),
-                ),
-              );
-            },
-          );
-        },
+      body: Container(
+        child: const Column(
+          children: [
+            Expanded(
+              child: Messages(),
+            ),
+          ],
+        ),
       ),
+      // StreamBuilder(
+      //   stream: FirebaseFirestore.instance
+      //       .collection('chats/WEFaxXy2doedbXQkR0Q1/message')
+      //       .snapshots(),
+      //   builder: (BuildContext context,
+      //       AsyncSnapshot<QuerySnapshot<Map<String, dynamic>>> snapshot) {
+      //     if (snapshot.connectionState == ConnectionState.waiting) {
+      //       return const Center(
+      //         child: CircularProgressIndicator(),
+      //       );
+      //     }
+
+      //     final docs = snapshot.data!.docs;
+
+      //     return ListView.builder(
+      //       itemCount: docs.length,
+      //       itemBuilder: (context, index) {
+      //         return Container(
+      //           padding: const EdgeInsets.all(8),
+      //           child: Text(
+      //             docs[index]['text'],
+      //             style: const TextStyle(
+      //               fontSize: 20,
+      //             ),
+      //           ),
+      //         );
+      //       },
+      //     );
+      //   },
+      // ),
     );
   }
 }

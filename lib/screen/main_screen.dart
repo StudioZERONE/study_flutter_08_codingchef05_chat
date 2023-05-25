@@ -3,7 +3,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:study_flutter_08_codingchef05_chat/config/palette.dart';
-import 'package:study_flutter_08_codingchef05_chat/screen/chat_screen.dart';
 
 class LoginSignupScreen extends StatefulWidget {
   const LoginSignupScreen({super.key});
@@ -502,14 +501,14 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                               password: userPassword,
                             );
 
-                            if (loginUser.user != null) {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) {
-                                  return const ChatScreen();
-                                }),
-                              );
-                            }
+                            // if (loginUser.user != null) {
+                            //   Navigator.push(
+                            //     context,
+                            //     MaterialPageRoute(builder: (context) {
+                            //       return const ChatScreen();
+                            //     }),
+                            //   );
+                            // }
                           } catch (e) {
                             print('User Login - Error: $e');
                             ScaffoldMessenger.of(context).showSnackBar(
