@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:study_flutter_08_codingchef05_chat/chatting/chat/message.dart';
+import 'package:study_flutter_08_codingchef05_chat/chatting/chat/new_message.dart';
 
 class ChatScreen extends StatefulWidget {
   const ChatScreen({super.key});
@@ -56,6 +57,7 @@ class _ChatScreenState extends State<ChatScreen> {
             Expanded(
               child: Messages(),
             ),
+            NewMessage(),
           ],
         ),
       ),
