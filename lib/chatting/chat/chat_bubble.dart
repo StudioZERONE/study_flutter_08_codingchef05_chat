@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
 class ChatBubble extends StatelessWidget {
-  const ChatBubble(this.message, {super.key});
+  const ChatBubble(this.message, this.isMe, {super.key});
 
   final String message;
+  final bool isMe;
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +12,7 @@ class ChatBubble extends StatelessWidget {
       children: [
         Container(
           decoration: BoxDecoration(
-            color: Colors.blue,
+            color: isMe ? Colors.grey[300] : Colors.blue,
             borderRadius: BorderRadius.circular(12),
           ),
           width: 145,
@@ -25,8 +26,8 @@ class ChatBubble extends StatelessWidget {
           ),
           child: Text(
             message,
-            style: const TextStyle(
-              color: Colors.white,
+            style: TextStyle(
+              color: isMe ? Colors.black : Colors.white,
             ),
           ),
         ),
