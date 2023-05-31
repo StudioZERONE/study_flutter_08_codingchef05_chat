@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 
 class ChatBubble extends StatelessWidget {
-  const ChatBubble({
-    this.message = '',
-    super.key,
-  });
+  const ChatBubble(this.message, {super.key});
 
   final String message;
+
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -21,7 +19,10 @@ class ChatBubble extends StatelessWidget {
             vertical: 10,
             horizontal: 16,
           ),
-          margin: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
+          margin: const EdgeInsets.symmetric(
+            vertical: 4,
+            horizontal: 8,
+          ),
           child: Text(
             message,
             style: const TextStyle(
