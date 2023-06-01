@@ -1,7 +1,7 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:study_flutter_08_codingchef05_chat/chatting/chat/chat_bubble.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:study_flutter_08_codingchef05_chat/chatting/chat/chat_bubble.dart';
 
 class Messages extends StatelessWidget {
   const Messages({super.key});
@@ -12,16 +12,17 @@ class Messages extends StatelessWidget {
 
     return StreamBuilder(
       stream: FirebaseFirestore.instance
+          //.collection('chats/WEFaxXy2doedbXQkR0Q1/message')
           .collection('chat')
           .orderBy('time', descending: true)
           .snapshots(),
-      builder: (BuildContext context,
+      builder: (context,
           AsyncSnapshot<QuerySnapshot<Map<String, dynamic>>> snapshot) {
-        // if (snapshot.connectionState == ConnectionState.waiting) {
-        //   return const Center(
-        //     child: CircularProgressIndicator(),
-        //   );
-        // }
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        }
 
         final chatDocs = snapshot.data!.docs;
 
