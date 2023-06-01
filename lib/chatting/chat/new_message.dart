@@ -40,6 +40,9 @@ class _NewMessageState extends State<NewMessage> {
                   _userEnterMessage = value;
                 });
               },
+              minLines: 1,
+              //maxLines: 5,
+              maxLines: null,
             ),
           ),
           IconButton(
