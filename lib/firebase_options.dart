@@ -67,7 +67,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '878194092081',
     projectId: 'study-flutter-08-cchef05-59941',
     storageBucket: 'study-flutter-08-cchef05-59941.appspot.com',
-    iosClientId: '878194092081-4jpbku4c44nk326f39en9gkshi69pd58.apps.googleusercontent.com',
+    iosClientId:
+        '878194092081-4jpbku4c44nk326f39en9gkshi69pd58.apps.googleusercontent.com',
     iosBundleId: 'com.example.studyFlutter08Codingchef05Chat',
   );
 
@@ -77,7 +78,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '878194092081',
     projectId: 'study-flutter-08-cchef05-59941',
     storageBucket: 'study-flutter-08-cchef05-59941.appspot.com',
-    iosClientId: '878194092081-4jpbku4c44nk326f39en9gkshi69pd58.apps.googleusercontent.com',
+    iosClientId:
+        '878194092081-4jpbku4c44nk326f39en9gkshi69pd58.apps.googleusercontent.com',
     iosBundleId: 'com.example.studyFlutter08Codingchef05Chat',
   );
 }

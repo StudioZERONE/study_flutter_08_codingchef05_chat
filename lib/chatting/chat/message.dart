@@ -16,15 +16,21 @@ class Messages extends StatelessWidget {
           .collection('chat')
           .orderBy('time', descending: true)
           .snapshots(),
-      builder: (context,
-          AsyncSnapshot<QuerySnapshot<Map<String, dynamic>>> snapshot) {
+      builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return const Center(
             child: CircularProgressIndicator(),
           );
         }
 
+        if (snapshot.hasError) {
+          return Text('데이터를 불러오는 중 오류가 발생했습니다. ${snapshot.error}');
+        }
+
         final chatDocs = snapshot.data!.docs;
+
+        print('message.dart - Login User: ${user!.email}');
+        print('message.dart - chatDocs.length: ${chatDocs.length}');
 
         return ListView.builder(
           reverse: true,
@@ -32,7 +38,8 @@ class Messages extends StatelessWidget {
           itemBuilder: (context, index) {
             return ChatBubble(
               chatDocs[index]['text'],
-              chatDocs[index]['userID'].toString() == user!.uid,
+              //true,
+              chatDocs[index]['userID'].toString() == user.uid,
             );
           },
         );

@@ -26,7 +26,7 @@ class _ChatScreenState extends State<ChatScreen> {
       final user = _authentication.currentUser;
       if (user != null) {
         loggedUser = user;
-        print('chat_screen Login User: ${loggedUser!.email}');
+        print('chat_screen.dart - Login User: ${loggedUser!.email}');
       }
     } catch (e) {
       print('chat_screen Current User - Error: $e');
@@ -55,6 +55,7 @@ class _ChatScreenState extends State<ChatScreen> {
         child: const Column(
           children: [
             Expanded(
+              //child: MessageTest(),
               child: Messages(),
             ),
             NewMessage(),
