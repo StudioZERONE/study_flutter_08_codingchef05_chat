@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_chat_bubble/chat_bubble.dart';
 
 class ChatBubbles extends StatelessWidget {
-  const ChatBubbles(this.message, this.isMe, {super.key});
+  const ChatBubbles(this.message, this.userName, this.isMe, {super.key});
 
   final String message;
+  final String userName;
   final bool isMe;
 
   @override
@@ -52,9 +53,22 @@ class ChatBubbles extends StatelessWidget {
                 constraints: BoxConstraints(
                   maxWidth: MediaQuery.of(context).size.width * 0.7,
                 ),
-                child: Text(
-                  message,
-                  style: const TextStyle(color: Colors.white),
+                child: Column(
+                  crossAxisAlignment:
+                      isMe ? CrossAxisAlignment.end : CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      userName,
+                      style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
+                    Text(
+                      message,
+                      style: const TextStyle(color: Colors.white),
+                    ),
+                  ],
                 ),
               ),
             ),
@@ -70,9 +84,22 @@ class ChatBubbles extends StatelessWidget {
                 constraints: BoxConstraints(
                   maxWidth: MediaQuery.of(context).size.width * 0.7,
                 ),
-                child: Text(
-                  message,
-                  style: const TextStyle(color: Colors.black),
+                child: Column(
+                  crossAxisAlignment:
+                      isMe ? CrossAxisAlignment.end : CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      userName,
+                      style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black,
+                      ),
+                    ),
+                    Text(
+                      message,
+                      style: const TextStyle(color: Colors.black),
+                    ),
+                  ],
                 ),
               ),
             ),

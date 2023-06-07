@@ -38,6 +38,7 @@ class Messages extends StatelessWidget {
           itemBuilder: (context, index) {
             return ChatBubbles(
               chatDocs[index]['text'],
+              chatDocs[index]['userName'],
               //true,
               chatDocs[index]['userID'].toString() == user.uid,
             );
