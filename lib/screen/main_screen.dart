@@ -28,6 +28,20 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
     }
   }
 
+  void showAlert(BuildContext context) {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return const Dialog(
+            backgroundColor: Colors.white,
+            child: SizedBox(
+              width: 150,
+              height: 300,
+            ),
+          );
+        });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -178,11 +192,16 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                                       const SizedBox(
                                         width: 15,
                                       ),
-                                      Icon(
-                                        Icons.image,
-                                        color: isSignupScreen
-                                            ? Colors.cyan
-                                            : Colors.grey[300],
+                                      GestureDetector(
+                                        onTap: () {
+                                          showAlert(context);
+                                        },
+                                        child: Icon(
+                                          Icons.image,
+                                          color: isSignupScreen
+                                              ? Colors.cyan
+                                              : Colors.grey[300],
+                                        ),
                                       ),
                                     ],
                                   ),
