@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
+import 'package:study_flutter_08_codingchef05_chat/add_image/add_image.dart';
 import 'package:study_flutter_08_codingchef05_chat/config/palette.dart';
 
 class LoginSignupScreen extends StatefulWidget {
@@ -32,39 +33,9 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
     showDialog(
         context: context,
         builder: (context) {
-          return Dialog(
+          return const Dialog(
             backgroundColor: Colors.white,
-            child: Container(
-              padding: const EdgeInsets.all(10),
-              width: 150,
-              height: 300,
-              child: Column(
-                children: [
-                  const CircleAvatar(
-                    radius: 40,
-                    backgroundColor: Colors.blue,
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  OutlinedButton.icon(
-                    onPressed: () {},
-                    icon: const Icon(Icons.image),
-                    label: const Text('Add icon'),
-                  ),
-                  const SizedBox(
-                    height: 80,
-                  ),
-                  TextButton.icon(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    icon: const Icon(Icons.close),
-                    label: const Text('Close'),
-                  ),
-                ],
-              ),
-            ),
+            child: AddImage(),
           );
         });
   }
