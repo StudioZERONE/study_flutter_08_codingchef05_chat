@@ -32,11 +32,38 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
     showDialog(
         context: context,
         builder: (context) {
-          return const Dialog(
+          return Dialog(
             backgroundColor: Colors.white,
-            child: SizedBox(
+            child: Container(
+              padding: const EdgeInsets.all(10),
               width: 150,
               height: 300,
+              child: Column(
+                children: [
+                  const CircleAvatar(
+                    radius: 40,
+                    backgroundColor: Colors.blue,
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  OutlinedButton.icon(
+                    onPressed: () {},
+                    icon: const Icon(Icons.image),
+                    label: const Text('Add icon'),
+                  ),
+                  const SizedBox(
+                    height: 80,
+                  ),
+                  TextButton.icon(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    icon: const Icon(Icons.close),
+                    label: const Text('Close'),
+                  ),
+                ],
+              ),
             ),
           );
         });
