@@ -190,17 +190,18 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                                       const SizedBox(
                                         width: 15,
                                       ),
-                                      GestureDetector(
-                                        onTap: () {
-                                          showAlert(context);
-                                        },
-                                        child: Icon(
-                                          Icons.image,
-                                          color: isSignupScreen
-                                              ? Colors.cyan
-                                              : Colors.grey[300],
+                                      if (isSignupScreen)
+                                        GestureDetector(
+                                          onTap: () {
+                                            showAlert(context);
+                                          },
+                                          child: Icon(
+                                            Icons.image,
+                                            color: isSignupScreen
+                                                ? Colors.cyan
+                                                : Colors.grey[300],
+                                          ),
                                         ),
-                                      ),
                                     ],
                                   ),
                                   if (isSignupScreen)
