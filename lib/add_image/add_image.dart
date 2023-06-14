@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
 class AddImage extends StatefulWidget {
-  const AddImage({super.key});
+  const AddImage(this.addImageFunc, {super.key});
+
+  final Function(File pickedImage) addImageFunc;
 
   @override
   State<AddImage> createState() => _AddImageState();
@@ -26,6 +28,7 @@ class _AddImageState extends State<AddImage> {
         pickedImage = File(pickedImageFile.path);
       }
     });
+    widget.addImageFunc(pickedImage!);
   }
 
   @override

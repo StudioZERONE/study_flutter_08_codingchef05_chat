@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -21,6 +23,11 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
   String userName = '';
   String userEmail = '';
   String userPassword = '';
+  File? userPickedImage;
+
+  void pickedImage(File image) {
+    userPickedImage = image;
+  }
 
   void _tryValidation() {
     final isValid = _formKey.currentState!.validate();
@@ -33,9 +40,9 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
     showDialog(
         context: context,
         builder: (context) {
-          return const Dialog(
+          return Dialog(
             backgroundColor: Colors.white,
-            child: AddImage(),
+            child: AddImage(pickedImage),
           );
         });
   }
@@ -484,6 +491,19 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                         });
                         // 회원가입 ----------------
                         if (isSignupScreen) {
+                          if (userPickedImage == null) {
+                            setState(() {
+                              showSpinner = false;
+                            });
+
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                content: Text('Please pick your image'),
+                                backgroundColor: Colors.blue,
+                              ),
+                            );
+                            return;
+                          }
                           _tryValidation();
                           try {
                             final newUser = await _authentication
@@ -513,13 +533,15 @@ class _LoginSignupScreenState extends State<LoginSignupScreen> {
                             }
                           } catch (e) {
                             print('New User Creation - Error: $e');
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(
-                                content: Text(
-                                    'Please check your email and password'),
-                                backgroundColor: Colors.blue,
-                              ),
-                            );
+                            if (mounted) {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                  content: Text(
+                                      'Please check your email and password'),
+                                  backgroundColor: Colors.blue,
+                                ),
+                              );
+                            }
                           }
                         }
 
