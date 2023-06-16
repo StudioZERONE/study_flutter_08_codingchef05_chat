@@ -41,6 +41,7 @@ class Messages extends StatelessWidget {
               chatDocs[index]['userName'],
               //true,
               chatDocs[index]['userID'].toString() == user.uid,
+              chatDocs[index]['userImage'],
             );
           },
         );
